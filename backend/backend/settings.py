@@ -40,23 +40,12 @@ INSTALLED_APPS = [
     "rest_framework",
     "elevareApi",
     "corsheaders",
-    "django.contrib.sites",   # required for allauth
-    "allauth",
-    "allauth.account",
-    "allauth.socialaccount",
-    "allauth.socialaccount.providers.google",  # 👈 Google provider
-    "dj_rest_auth",
-    "dj_rest_auth.registration",
+    "rest_framework_simplejwt",
 ]
 
-SITE_ID = 1
-
-REST_USE_JWT = True   # using JWT tokens
-ACCOUNT_EMAIL_VERIFICATION = "none"
-ACCOUNT_AUTHENTICATION_METHOD = "username"
-ACCOUNT_EMAIL_REQUIRED = False
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -69,7 +58,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'backend.urls'
 
-CORS_ALLOW_ALL_ORIGINS = True 
+CORS_ALLOW_ALL_ORIGINS = True
 
 TEMPLATES = [
     {
@@ -87,16 +76,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'backend.wsgi.application'
-
-SOCIALACCOUNT_PROVIDERS = {
-    "google": {
-        "APP": {
-            "client_id": "YOUR_GOOGLE_CLIENT_ID",
-            "secret": "YOUR_GOOGLE_CLIENT_SECRET",
-            "key": ""
-        }
-    }
-}
 
 
 # Database
@@ -150,3 +129,10 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    ),
+    # you can leave DEFAULT_PERMISSION_CLASSES empty and protect per-view
+}
