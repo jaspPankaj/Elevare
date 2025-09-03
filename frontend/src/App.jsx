@@ -1,46 +1,20 @@
-import { useState } from "react";
-import axios from "axios";
+// src/App.jsx
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import Login from "./pages/Login";
+import Dashboard from "./pages/Dashboard";
+import ProtectedRoute from "./components/ProtectedRoute";
 
-function App() {
-  const [skills, setSkills] = useState("");
-  const [career, setCareer] = useState(null);
-
-  const handlePredict = async () => {
-    try {
-      const res = await axios.post("/api/predict-career/", {
-        skills: skills.split(",").map(s => s.trim())
-      });
-      setCareer(res.data.predicted_career);
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
+export default function App() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6">
-      <h1 className="text-3xl font-bold mb-6">Elevare 🚀</h1>
-      <input
-        type="text"
-        placeholder="Enter skills (comma separated)"
-        value={skills}
-        onChange={(e) => setSkills(e.target.value)}
-        className="border rounded-lg p-2 w-80 mb-4"
-      />
-      <button
-        onClick={handlePredict}
-        className="bg-blue-600 text-white px-4 py-2 rounded-lg shadow-md"
-      >
-        Predict Career
-      </button>
-      {career && (
-        <div className="mt-6 p-4 bg-white rounded-xl shadow-md">
-          <p className="text-lg font-medium">
-            Suggested Career: <span className="text-blue-700">{career}</span>
-          </p>
-        </div>
-      )}
-    </div>
+    <Routes>
+      <Route path="/login" element={<Login />} />
+      <Route path="/dashboard" element={
+        <ProtectedRoute>
+          <Dashboard />
+        </ProtectedRoute>
+      } />
+      <Route path="*" element={<Login />} />
+    </Routes>
   );
 }
-
-export default App;
