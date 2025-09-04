@@ -1,11 +1,13 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import authentication, permissions
-from django.contrib.auth.models import User
+
 from .serializers import RegisterSerializer
 from rest_framework import status
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.permissions import IsAuthenticated
+
+from .models import User
 
 class Registerview(APIView):
 
@@ -24,10 +26,10 @@ class Registerview(APIView):
 class Loginview(APIView):
     def post(self, request):
         data = request.data
-        username = data.get("username")
+        email = data.get("email")
         password = data.get("password")
 
-        user = User.objects.filter(username = username).first()
+        user = User.objects.filter(email = email).first()
         if user and user.check_password(password):
             refresh= RefreshToken.for_user(user)
             return Response({
