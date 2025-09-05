@@ -14,6 +14,7 @@ from pathlib import Path
 import os
 from dotenv import load_dotenv
 load_dotenv()
+from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -41,9 +42,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "rest_framework",
-    "elevareApi",
     "corsheaders",
     "rest_framework_simplejwt",
+    "elevareApi",
+    "aiApp"
 ]
 
 
@@ -144,3 +146,8 @@ REST_FRAMEWORK = {
     ),
     # you can leave DEFAULT_PERMISSION_CLASSES empty and protect per-view
 }
+
+# ML MODEL CONFIGURATIO
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+MODEL_PATH = str(BASE_DIR / "ml_models" / "model.pkl")

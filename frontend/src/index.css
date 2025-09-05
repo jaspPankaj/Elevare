@@ -1,1 +1,22 @@
 @import "tailwindcss";
+
+@theme {
+    --color-background : var(--background);
+    --color-foreground : var(--forground);
+    --color-primary : var(--primary);
+    --color-secondary : var(--secondary);
+    --color-card :var(--card);
+    --color-border : var(--border);
+}
+
+@layer base {
+    :root{
+        --background :#fff;
+        --foreground :#D4D4D4;
+        --primary : #050505;
+        --secondary : #061B45;
+        --card : #D5D8E3;
+        --border : #4D4D4D;
+    }
+    
+}

@@ -1,20 +1,20 @@
 // src/App.jsx
-import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Login from "./pages/Login";
-import Dashboard from "./pages/Dashboard";
-import ProtectedRoute from "./components/ProtectedRoute";
+import { Home } from "./pages/Home";
+import { NotFoundPage } from "./pages/NotFoundPage";
+import { Register } from "./pages/Register";
+import { NavBar } from "./components/NavBar";
 
 export default function App() {
   return (
-    <Routes>
-      <Route path="/login" element={<Login />} />
-      <Route path="/dashboard" element={
-        <ProtectedRoute>
-          <Dashboard />
-        </ProtectedRoute>
-      } />
-      <Route path="*" element={<Login />} />
-    </Routes>
+    <>
+      <NavBar />
+      <Routes>
+        <Route index element={<Home />} />
+        <Route path="register" element={<Register />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+    </>
+    
   );
 }
