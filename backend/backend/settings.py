@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     "corsheaders",
     "rest_framework_simplejwt",
     "elevareApi",
-    "aiApp"
 ]
 
 
@@ -149,5 +148,4 @@ REST_FRAMEWORK = {
 
 # ML MODEL CONFIGURATIO
 
-BASE_DIR = Path(__file__).resolve().parent.parent
-MODEL_PATH = str(BASE_DIR / "ml_models" / "model.pkl")
+
