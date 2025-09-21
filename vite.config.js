@@ -10,5 +10,8 @@ export default defineConfig({
     alias : {
       "@" : Path.resolve(__dirname, "./src"),
     }
-  },base: "/elevare",
+  },base: "/elevare/",
+  server: {
+    historyApiFallback: true, // ensures BrowserRouter works locally
+  },
 })

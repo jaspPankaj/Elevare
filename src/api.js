@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://elevarebackend-kw5n.onrender.com/api/",
+  baseURL: "https://elevarebackend-v13q.onrender.com/api/",
 });
 
 // Attach access token before every request
