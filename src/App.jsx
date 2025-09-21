@@ -18,11 +18,11 @@ export const App = () => {
       <Navbar />
 
       <Routes>
-        <Route index element={<Home />} />
-        <Route path="/register" element={<UserHandle method="register" />} />
-        <Route path="/login" element={<UserHandle method="login" />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/history" element={<History />} />
+        <Route path="/elevare" element={<Home />} />
+        <Route path="/elevare/register" element={<UserHandle method="register" />} />
+        <Route path="/elevare/login" element={<UserHandle method="login" />} />
+        <Route path="/elevare/dashboard" element={<Dashboard />} />
+        <Route path="/elevare/history" element={<History />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <ToastContainer position="top-right" autoClose={3000} />

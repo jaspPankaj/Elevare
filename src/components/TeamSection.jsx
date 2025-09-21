@@ -12,7 +12,7 @@ export const TeamSection = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-evenly">
         <div className="flex flex-col">
           <img
-            src="/ishika.png"
+            src="/elevare/ishika.png"
             alt="Ishika Pal Pic"
             className="w-sm rounded-lg shadow-md hover:shadow-blue-300"
           />
@@ -52,7 +52,7 @@ export const TeamSection = () => {
         </div>
         <div className="flex flex-col">
           <img
-            src="/pankaj.png"
+            src="/elevare/pankaj.png"
             alt="Ishika Pal Pic"
             className="w-sm rounded-lg shadow-md hover:shadow-blue-300"
           />

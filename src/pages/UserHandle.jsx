@@ -25,7 +25,7 @@ export const UserHandle = ({ method }) => {
   // Redirect if already logged in
   useEffect(() => {
     if (localStorage.getItem("access_token")) {
-      navigate("/dashboard");
+      navigate("/elevare/dashboard");
     }
   }, [navigate]);
 
@@ -35,7 +35,7 @@ export const UserHandle = ({ method }) => {
     try {
       await login(username, password);
       toast.success("Logged in successfully 🎉");
-      navigate("/dashboard");
+      navigate("/elevare/dashboard");
     } catch (err) {
       toast.error(err.response?.data?.error || "Something went wrong!");
     } finally {
@@ -63,7 +63,7 @@ export const UserHandle = ({ method }) => {
       setPassword("");
       setPassword2("");
 
-      setTimeout(() => navigate("/login"), 1500);
+      setTimeout(() => navigate("/elevare/login"), 1500);
     } catch (err) {
       const errors = err.response?.data;
       if (typeof errors === "string") {
@@ -143,7 +143,7 @@ export const UserHandle = ({ method }) => {
             <div className="mt-6 text-center text-sm text-gray-600">
               Don’t have an account?{" "}
               <span
-                onClick={() => navigate("/register")}
+                onClick={() => navigate("/elevare/register")}
                 className="text-indigo-600 hover:underline cursor-pointer"
               >
                 Register
@@ -246,7 +246,7 @@ export const UserHandle = ({ method }) => {
             <div className="mt-6 text-center text-sm text-gray-600">
               Already have an account?{" "}
               <span
-                onClick={() => navigate("/login")}
+                onClick={() => navigate("/elevare/login")}
                 className="text-indigo-600 hover:underline cursor-pointer"
               >
                 Login

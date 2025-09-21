@@ -18,8 +18,8 @@ export default function Navbar() {
 
   // Navigation links
   const navLinks = [
-    { name: "Dashboard", href: "/dashboard" },
-    { name: "History", href: "/history" },
+    { name: "Dashboard", href: "/elevare/dashboard" },
+    { name: "History", href: "/elevare/history" },
   ];
 
   return (
@@ -60,8 +60,8 @@ export default function Navbar() {
           {!user && (
             <>
               <a
-                href="/login"
-                className="px-8 py-2 rounded-md bg-teal-500 text-white font-bold transition duration-200 hover:bg-white hover:text-black border-2 border-transparent hover:border-teal-500"
+                href="/elevare/login"
+                className="px-8 py-2 rounded-md bg-blue-600 text-white font-bold transition duration-200 hover:bg-white hover:text-black border-2 border-transparent hover:border-blue-600"
               >
                 Start Now
               </a>

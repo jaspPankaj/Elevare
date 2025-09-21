@@ -53,7 +53,7 @@ const GoogleLoginButton = ({ onSuccess }) => {
     });
 
     setIsLoggedIn(true);
-    window.location.href = "/dashboard";
+    window.location.href = "/elevare/dashboard";
     
 
   } catch (error) {
