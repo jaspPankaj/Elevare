@@ -13,7 +13,7 @@ import { Footer } from "./components/Footer";
 
 export const App = () => {
   return (
-    <BrowserRouter basename="/elevare"> {/* <-- replace with your repo name */}
+    <BrowserRouter basename="/elevare"> 
       <Navbar />
 
       <Routes>

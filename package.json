@@ -1,17 +1,17 @@
 {
   "name": "frontend",
- "homepage": "https://jasppankaj.github.io/elevare",
+  "homepage": "https://jasppankaj.github.io/elevare",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-  "dev": "vite",
-  "build": "vite build",
-  "lint": "eslint .",
-  "preview": "vite preview",
-  "predeploy": "npm run build",
-  "deploy": "gh-pages -d dist"
-},
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
   "dependencies": {
     "@formspree/react": "^3.0.0",
     "@heroicons/react": "^2.2.0",
