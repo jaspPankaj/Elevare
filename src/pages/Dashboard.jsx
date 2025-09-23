@@ -143,8 +143,8 @@ export default function Dashboard() {
   const specializationOptions = specializations[form.ug_course] || ["Other"];
 
   return (
-    <div className="min-h-screen bg-transparent relative overflow-x-hidden">
-      <AuroraBackground className="fixed inset-0 -z-10" />
+    <div className="min-h-screen bg-gradient-to-br from-indigo-100 via-white to-pink-100 relative overflow-x-hidden">
+      
 
       <div className="px-4 py-16 grid grid-cols-1 gap-6 mt-8">
         <div className="bg-white/80 backdrop-blur-lg rounded-2xl p-8 shadow-2xl">

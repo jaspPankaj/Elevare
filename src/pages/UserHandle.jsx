@@ -6,7 +6,7 @@ import GoogleLoginButton from "../components/GoogleLoginButton";
 import { AuroraBackground } from "../components/ui/aurora-background";
 import { toast } from "react-toastify";
 
-export const UserHandle = ({ method }) => {
+function UserHandle  ({ method })  {
   const { login, register } = useAuth();
 
   const [name, setName] = useState("");
@@ -63,7 +63,7 @@ export const UserHandle = ({ method }) => {
       setPassword("");
       setPassword2("");
 
-      setTimeout(() => navigate("/elevare/login"), 1500);
+      setTimeout(() => navigate("/login"), 1500);
     } catch (err) {
       const errors = err.response?.data;
       if (typeof errors === "string") {
@@ -83,9 +83,8 @@ export const UserHandle = ({ method }) => {
   };
 
   return (
-    <div className="relative flex justify-center items-center min-h-screen">
-      {/* Background */}
-      <AuroraBackground className="fixed inset-0 -z-10" />
+    <div className="relative bg-gradient-to-br from-indigo-100 via-white to-pink-100 flex justify-center items-center min-h-screen">
+      
 
       {/* Auth Card */}
       <div className="w-full max-w-md bg-white/80 backdrop-blur-md shadow-2xl rounded-2xl p-8 mt-16">
@@ -143,7 +142,7 @@ export const UserHandle = ({ method }) => {
             <div className="mt-6 text-center text-sm text-gray-600">
               Don’t have an account?{" "}
               <span
-                onClick={() => navigate("/elevare/register")}
+                onClick={() => navigate("/register")}
                 className="text-indigo-600 hover:underline cursor-pointer"
               >
                 Register
@@ -246,7 +245,7 @@ export const UserHandle = ({ method }) => {
             <div className="mt-6 text-center text-sm text-gray-600">
               Already have an account?{" "}
               <span
-                onClick={() => navigate("/elevare/login")}
+                onClick={() => navigate("/login")}
                 className="text-indigo-600 hover:underline cursor-pointer"
               >
                 Login
@@ -257,4 +256,4 @@ export const UserHandle = ({ method }) => {
       </div>
     </div>
   );
-};
+}; export default UserHandle;

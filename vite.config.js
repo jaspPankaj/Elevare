@@ -8,5 +8,5 @@ export default defineConfig({
   resolve: {
     alias: { "@": path.resolve(__dirname, "./src") },
   },
-  base: "/elevare/", // For Netlify, base should be "/"
+  base: "/elevare/",    
 })

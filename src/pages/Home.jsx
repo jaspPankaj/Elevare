@@ -4,13 +4,11 @@ import { NewsletterSection } from "../components/NewsletterSection"
 import { TeamSection } from "../components/TeamSection"
 import { AuroraBackground } from "../components/ui/aurora-background"
 
-export const Home = () => {
+function Home  () {
   return (
-    <div className="min-h-screen bg-transparent overflow-x-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-indigo-100 via-white to-pink-100 overflow-x-hidden">
       
-      <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
-         <AuroraBackground/>
-      </div>
+      
 
       <main>
       <HeroSection />
@@ -22,4 +20,4 @@ export const Home = () => {
       
     </div>
   )
-}
+} export default Home;

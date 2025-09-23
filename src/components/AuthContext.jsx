@@ -50,7 +50,7 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem("refresh_token");
     localStorage.removeItem("username");
     setUser(null);
-    window.location.href = "/";
+    window.location.href = "/elevare";
   };
 
   const value = {
