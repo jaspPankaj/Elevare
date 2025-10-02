@@ -5,11 +5,11 @@ export const  Footer = () => {
     <div  className="relative flex flex-col items-center justify-center gap-4 px-4 p-8">
         
         {/* Brand / Logo */}
-        <div className="text-center">
-          <h2 className="text-2xl font-bold text-blue-600">Elevare</h2>
-          <p className="text-sm text-blue-800">
+        <div className="flex flex-col items-center justify-center">
+          <img src="/elevare/logo.png" alt="Elevare" className="h-16 w-auto " />
+          <h1 className="text-sm text-blue-800">
             From skills to success, Smarter with AI.
-          </p>
+          </h1>
         </div>
 
       {/* Bottom Bar */}

@@ -27,17 +27,14 @@ export default function Navbar() {
     <nav
       className={cn(
         "fixed w-full z-40 transition-all duration-300 shadow-sm shadow-blue-600",
-        isScrolled ? "py-4 bg-white/80 backdrop-blur-lg shadow-sm" : "py-5"
+        isScrolled ? "py-3 bg-white/80 backdrop-blur-lg shadow-sm" : "py-3"
       )}
     >
-      <div className="flex items-center justify-evenly">
+      <div className="flex items-center justify-around">
         <div>
           {/* Logo */}
-          <a
-            className="text-xl font-bold text-primary flex items-center"
-            href="/elevare"
-          >
-            <h1 className="text-blue-600 text-2xl md:text-3xl">Elevare</h1>
+          <a className="flex items-center" href="/elevare/">
+            <img src="/elevare/logo.png" alt="Elevare" className="h-12 w-auto lg:h-16" />
           </a>
         </div>
 

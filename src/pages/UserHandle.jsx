@@ -35,7 +35,7 @@ function UserHandle  ({ method })  {
     try {
       await login(username, password);
       toast.success("Logged in successfully 🎉");
-      navigate("/elevare/dashboard");
+      navigate("/dashboard");
     } catch (err) {
       toast.error(err.response?.data?.error || "Something went wrong!");
     } finally {

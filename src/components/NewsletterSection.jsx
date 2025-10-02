@@ -3,8 +3,43 @@ import {
   CalendarDaysIcon,
   HandRaisedIcon,
 } from "@heroicons/react/24/outline";
+import { Mail } from "lucide-react";
+import { useState } from "react";
+import { toast } from "react-toastify";
 
 export const NewsletterSection = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [email, setEmail] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // prevent page reload
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("https://formspree.io/f/xovkweow", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      if (response.ok) {
+        setTimeout(() => {
+          toast.success("Subscribed To Newsletter");
+          setIsSubmitting(false);
+          setEmail("");
+        }, 2000);
+      } else {
+        toast.error("❌ Something went wrong!");
+        setIsSubmitting(false);
+      }
+    } catch (error) {
+      toast.error("❌ Error: " + error.message);
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center gap-4 px-4 p-8 text-black">
       <div className="px-6 lg:px-8">
@@ -18,40 +53,37 @@ export const NewsletterSection = () => {
               learning trends. Get updates delivered straight to your inbox.
             </p>
             <div className="flex max-w-md gap-x-4">
-              <form
-                action="https://formspree.io/f/xovngybn"
-                method="POST"
-                className="flex max-w-md gap-x-4"
-              >
-                <label htmlFor="email-address" className="sr-only">
+              <form onSubmit={handleSubmit} className="flex max-w-md gap-x-4">
+                <label htmlFor="email" className="sr-only">
                   Email address
                 </label>
                 <input
-                  id="email-address"
+                  id="email"
                   name="email"
                   type="email"
                   required
-                  placeholder="Enter your email"
+                  placeholder="Enter your email.."
                   autoComplete="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   className="flex-auto rounded-md border border-blue-500 bg-white px-3.5 py-2 text-base text-black outline-none placeholder:text-gray-500 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500 sm:text-sm"
                 />
                 <button
                   type="submit"
-                  className="flex-none rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+                  disabled={isSubmitting}
+                  className="flex items-center gap-2 rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
                 >
-                  Subscribe
+                  {isSubmitting ? "Subscribing..." : "Subscribe"}{" "}
+                  <Mail className="h-5 w-5" />
                 </button>
               </form>
             </div>
           </div>
+
+          {/* Feature cards */}
           <dl className="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-3 lg:pt-2">
             <div className="flex flex-col items-start shadow-lg hover:shadow-blue-300 rounded-lg p-2">
-              <div className="rounded-md bg-white/5 p-2 ring-1 ring-white/10">
-                <CalendarDaysIcon
-                  aria-hidden="true"
-                  className="size-6 text-blue-800"
-                />
-              </div>
+              <CalendarDaysIcon aria-hidden="true" className="h-6 w-6 text-blue-800" />
               <dt className="mt-4 text-base font-semibold text-blue-800">
                 Career Insight
               </dt>
@@ -60,13 +92,9 @@ export const NewsletterSection = () => {
                 you choose the right path.
               </dd>
             </div>
+
             <div className="flex flex-col items-start shadow-lg hover:shadow-blue-300 rounded-lg p-2">
-              <div className="rounded-md bg-white/5 p-2 ring-1 ring-white/10">
-                <ArrowTrendingUpIcon
-                  aria-hidden="true"
-                  className="size-6 text-blue-800"
-                />
-              </div>
+              <ArrowTrendingUpIcon aria-hidden="true" className="h-6 w-6 text-blue-800" />
               <dt className="mt-4 text-base font-semibold text-blue-800">
                 Skill Boosts
               </dt>
@@ -75,13 +103,9 @@ export const NewsletterSection = () => {
                 tailored to in-demand skills.
               </dd>
             </div>
+
             <div className="flex flex-col items-start shadow-lg hover:shadow-blue-300 rounded-lg p-2">
-              <div className="rounded-md bg-white/5 p-2 ring-1 ring-white/10">
-                <HandRaisedIcon
-                  aria-hidden="true"
-                  className="size-6 text-blue-800"
-                />
-              </div>
+              <HandRaisedIcon aria-hidden="true" className="h-6 w-6 text-blue-800" />
               <dt className="mt-4 text-base font-semibold text-blue-800">
                 No Spam, Only Values
               </dt>
@@ -92,18 +116,6 @@ export const NewsletterSection = () => {
             </div>
           </dl>
         </div>
-      </div>
-      <div
-        aria-hidden="true"
-        className="absolute top-0 left-1/2 -z-10 -translate-x-1/2 blur-3xl xl:-top-6"
-      >
-        <div
-          style={{
-            clipPath:
-              "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
-          }}
-          className="aspect-1155/678 w-288.75 bg-linear-to-tr from-[#ff80b5] to-[#9089fc] opacity-30"
-        />
       </div>
     </section>
   );
